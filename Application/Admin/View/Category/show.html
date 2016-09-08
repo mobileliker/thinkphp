@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
-		
-	</title>
+	<title>分类查看</title>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		a{color: black; text-decoration: none;}
+		.box{margin: 0 auto;width: 1000px;}
+		.add{
+			border: none;
+			display: inline-block;
+			outline: 0;
+			padding: 6px 16px;
+			vertical-align: middle;
+			overflow: hidden;
+			text-decoration: none;
+			color: #fff;
+			background-color: #F88E8B;
+			text-align: center;
+			transition: .2s ease-out;
+			cursor: pointer;
+			white-space: nowrap;
+			box-shadow: 0px 1px 3px rgba(0,0,0,0.12), 0px 1px 2px rgba(0,0,0,0.24);}
+		.add:hover{background-color: #F45551;}
+		td{width: 100px;text-align: center; border:1px solid #808080; padding: 3px 0;}
+		.operation:hover{color: red;}
+	</style>
+	
 </head>
 <body>
-<volist name = "result" id="vo" offset="1" length='3'>
-{$vo.id}:{$vo.category_name}
-<br>
-</volist>
+	<div class="box">
+		<a class="add" href="__URL__/add">新增</a>
+		<div>
+			<table cellspacing="0" cellpadding="0">
+				<tr>
+					<td>id</td>
+					<td>分类名</td>
+					<td>排序</td>
+					<td>拥有者id</td>
+					<td>编辑操作</td>
+					<td>删除操作</td>
+				</tr>
+				<volist name = "result" id="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.category_name} </td>
+					<td>{$vo.sort} </td>
+					<td>{$vo.user_id} </td>
+					<td><a class="operation operation_edit" href="__URL__/edit/id/{$vo.id}">编辑</a></td>
+					<td><a class="operation operation_delete" href="__URL__/delete/id/{$vo.id}">删除</a></td>
+				</tr>
+				</volist>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
