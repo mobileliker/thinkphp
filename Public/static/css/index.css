@@ -1,0 +1,54 @@
+body{
+	background-color: #F2F2F2;
+}
+
+.header{
+	background-color: #34495E;
+	height: 50px;
+	text-align: center;
+}
+.header a{
+	color: #ffffff;
+	line-height: 50px;
+	font-size:18px;
+	margin: 0 10px;
+}
+.header a:hover{
+	color: #ff0000;
+}
+
+.left_nav{
+	width: 15%;
+    float: left;
+}
+
+.left_nav dt{
+	border-bottom:1px solid #bababa;
+	padding: 10px;
+	position:relative;
+}
+.left_nav dd{
+	border-bottom:1px solid #bababa;
+	text-align: center;
+	padding: 10px;
+	position:relative;
+}
+
+.link{
+	color: #000000;
+}
+
+.link:hover{
+	color:#ff7d7d;
+}
+
+.link_active{
+	color:#ff3232;
+}
+
+.right_box{
+	float: right;
+	width: 83%;
+	margin-right: 16px;
+	
+}

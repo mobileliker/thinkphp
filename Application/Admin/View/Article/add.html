@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/public.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/index.css">
+	<script type="text/javascript" src="__PUBLIC__/static/js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<body>
+	<include file="Public/header" />
+	<include file="Public/left_nav" />
+	<div class="right_box">
+		<form action="__URL__/create" method="post">
+		题目：<input type="text" name="title"><br>
+		标签：<input type="text" name="tag"><br>
+		分类:
+		<select name="category_id">
+			<foreach name="result" item="vo">
+				<option value ={$vo.id}> {$vo.category_name}</option>
+			</foreach>
+ 		</select>
+ 		<br>
+		<input type="hidden" name="user_id" value="1">
+		排序：<input type="text" name="sort" value="50"><br>
+		本文内容：
+		<!-- 加载编辑器的容器 -->
+		<div>
+		    <script id="container" name="content" type="text/plain">
+		        这里写你的初始化内容
+		    </script>
+		    <!-- 配置文件 -->
+		    <script type="text/javascript" src="__PUBLIC__/ueditor/utf8-php/ueditor.config.js"></script>
+		    <!-- 编辑器源码文件 -->
+		    <script type="text/javascript" src="__PUBLIC__/ueditor/utf8-php/ueditor.all.js"></script>
+		    <!-- 实例化编辑器 -->
+		    <script type="text/javascript">
+		        var ue = UE.getEditor('container');
+		    </script>
+	    </div>
+	    <input type="submit">
+	</form>
+	</div>
+</body>
+</html>

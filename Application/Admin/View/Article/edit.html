@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/public.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/index.css">
+	<script type="text/javascript" src="__PUBLIC__/static/js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<body>
+	<include file="Public/header" />
+	<include file="Public/left_nav" />
+	<div class="right_box">
+		<form action="__URL__/update/id/{$item.id}" method="post">
+		<input type="hidden" name="id" value={$item.id}>
+		题目：<input type="text" name="title" value={$item.title}><br>
+		标签：<input type="text" name="tag" value={$item.tag}><br>
+		分类:
+		<select name="category_id">
+			<foreach name="result" item="vo">
+			<eq name="vo.id" value="$item.category_id">
+				<option value ={$vo.id} selected> {$vo.category_name}</option>
+			<else/>
+				<option value ={$vo.id}> {$vo.category_name}</option>
+			</eq>
+			</foreach>
+ 		</select>
+ 		<br>
+		<input type="hidden" name="user_id" value={$item.user_id}>
+		排序：<input type="text" name="sort" value={$item.sort}><br>
+		本文内容：
+		<!-- 加载编辑器的容器 -->
+		<div>
+		    <script id="container" name="content" type="text/plain">
+		        {:htmlspecialchars_decode($item['content'])}
+		    </script>
+		    <!-- 配置文件 -->
+		    <script type="text/javascript" src="__PUBLIC__/ueditor/utf8-php/ueditor.config.js"></script>
+		    <!-- 编辑器源码文件 -->
+		    <script type="text/javascript" src="__PUBLIC__/ueditor/utf8-php/ueditor.all.js"></script>
+		    <!-- 实例化编辑器 -->
+		    <script type="text/javascript">
+		        var ue = UE.getEditor('container');
+		    </script>
+	    </div>
+	    <input type="submit">
+	</form>
+	</div>
+</body>
+</html>
