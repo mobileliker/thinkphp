@@ -1,0 +1,20 @@
+*{
+	padding: 0; 
+	margin: 0;
+	font-family: "Microsoft YaHei";
+}
+ul,li{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+.clearfloat:after{
+	display: block;
+	clear: both;
+	content: "";
+	visibility: hidden;
+	height: 0;
+}

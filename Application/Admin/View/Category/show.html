@@ -1,0 +1,43 @@
+	
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/public.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/index.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/index.css">
+	<script type="text/javascript" src="__PUBLIC__/static/js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<body>
+	<include file="Public/header" />
+	<include file="Public/left_nav" />
+	<div class="right_box">
+		<div>
+			<table cellspacing="0" cellpadding="0">
+				<tr>
+					<td>id</td>
+					<td>分类名</td>
+					<td>排序</td>
+					<td>拥有者id</td>
+					<td>编辑操作</td>
+					<td>删除操作</td>
+				</tr>
+				<volist name = "result" id="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.category_name} </td>
+					<td>{$vo.sort} </td>
+					<td>{$vo.user_id} </td>
+					<td><a class="operation operation_edit" href="__URL__/edit/id/{$vo.id}">编辑</a></td>
+					<td><a class="operation operation_delete" href="javascript:if(confirm('确定要删除吗?')) location='{:U('delete',array('id'=>$vo['id']))}'">删除</a></td>
+				</tr>
+				</volist>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

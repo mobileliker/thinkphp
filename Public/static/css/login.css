@@ -1,0 +1,135 @@
+.box{
+	padding-top: 15px;
+	padding-bottom: 30px;
+	background-color: #ffffff;
+}
+
+.wrap{
+	width: 320px;
+	margin: 30px auto;
+	padding:25px 36px;
+	background-color: #ffffff;
+	box-shadow: 0 0 10px #626262;
+}
+
+.user ul{
+	display: block;
+	overflow: hidden;
+	padding-bottom: 15px;
+	border-bottom: 2px dotted #ededed;
+}
+
+.user_item{
+	font-size: 14px;
+	text-align: center;
+	float: left;
+	width: 85px;
+	height: 35px;
+	color: #000000;
+	background-color:#E5E6EA; 
+	line-height: 35px;
+	cursor: pointer;
+}
+
+.user_on{
+	color:#ffffff;
+	background-color: #06B3F7;
+}
+
+.user_off:hover{
+	color:#ffffff;
+	background-color: #5BC5EF;
+}
+
+.id{
+	margin-top: 20px;
+	margin-bottom: 14px;
+}
+.inputArea{
+	margin: 5px 0px;
+	width: 276px;
+	padding-left: 40px;
+    height: 46px;
+}
+
+/*.inputArea_user{
+	background: url(../images/login.png);
+    background-size: 110px;
+    background-position: -1px -3px;
+    background-repeat: no-repeat;
+}
+
+.inputArea_password{
+	background: url(../images/login.png);
+    background-size: 110px;
+    background-position: -1px -40px;
+    background-repeat: no-repeat;
+
+}*/
+
+.code{
+	display: block;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.codeInput{
+	float: left;
+	height: 35px;
+	width: 160px;
+	padding-left: 40px;
+	/*background: url(../images/login.png);
+    background-size: 110px;
+    background-position: 2px -80px;
+    background-repeat: no-repeat;*/
+}
+.showCode{
+	margin-left: 12px;
+	float: left;
+	border: 2px solid #000000;
+	height: 35px;
+	width: 100px;
+}
+
+.option{
+	display: block;
+	overflow: hidden;
+	line-height: 40px;
+}
+.register{
+	color:#ffffff;
+	background-color: #06B3F7;
+	width: 90px;
+	height: 40px;
+	border-radius: 5px;
+	text-align: center;
+	cursor:pointer;
+	border:none;
+	display: block;
+    margin: 0 auto;
+}
+
+.register:hover{
+	background-color: #009FE6;
+}
+
+.remember{
+	float: left;
+	color: #8C8C8C;
+	font-size: 12px;
+	margin: 0px 30px;
+}
+
+.forget{
+	float: left;
+	font-size: 12px;
+}
+
+.forget a{
+	color:#8C8C8C;
+}
+
+.verifyCode{
+	width: 100px;
+	height: 35px;
+	cursor: pointer;
+}
