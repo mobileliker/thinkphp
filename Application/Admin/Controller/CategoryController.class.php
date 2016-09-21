@@ -1,9 +1,9 @@
 <?php
 namespace Admin\Controller;
 
-use Think\Controller;
+use Common\Controller\AdminController;
 
-class CategoryController extends Controller
+class CategoryController extends AdminController
 {
 	private $Categories;
 
@@ -16,7 +16,8 @@ class CategoryController extends Controller
     //显示
 	public function show()
 	{
-		$result = $this->Categories->select();
+		$temp['user_id'] = session('user_id');
+		$result = $this->Categories->where($temp)->select();
 		$this->assign('result',$result);
 		$this->display();
 	}

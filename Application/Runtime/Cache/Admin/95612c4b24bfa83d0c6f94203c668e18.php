@@ -12,7 +12,7 @@
 <body>
 	<div class="header">
 	<a href="/index.php/admin/index/index">首页</a>
-	<a href="">退出</a>
+	<a href="<?php echo U('logout');?>">退出</a>
 </div>
 	<div class="left_nav">
 	<dl>
@@ -28,7 +28,7 @@
 		<form action="/index.php/Admin/Category\create" method="post">
 		分类名：<input type="text" name="category_name"><br>
 		排序：<input type="text" name="sort" value="50"><br>
-		<input type="hidden" value="1" name="user_id">
+		<input type="hidden" value=<?php echo (session('user_id')); ?> name="user_id">
 		<input type="submit" value="提交"><br>
 	</form>
 	</div>

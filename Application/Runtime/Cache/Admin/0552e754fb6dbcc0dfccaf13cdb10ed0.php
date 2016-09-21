@@ -15,7 +15,7 @@
 <body>
 	<div class="header">
 	<a href="/index.php/admin/index/index">首页</a>
-	<a href="">退出</a>
+	<a href="<?php echo U('logout');?>">退出</a>
 </div>
 	<div class="left_nav">
 	<dl>
@@ -28,7 +28,6 @@
 	</dl>
 </div>
 	<div class="right_box">
-		<a class="add" href="/index.php/Admin/Category/add">新增</a>
 		<div>
 			<table cellspacing="0" cellpadding="0">
 				<tr>
@@ -45,7 +44,7 @@
 					<td><?php echo ($vo["sort"]); ?> </td>
 					<td><?php echo ($vo["user_id"]); ?> </td>
 					<td><a class="operation operation_edit" href="/index.php/Admin/Category/edit/id/<?php echo ($vo["id"]); ?>">编辑</a></td>
-					<td><a class="operation operation_delete" href="/index.php/Admin/Category/delete/id/<?php echo ($vo["id"]); ?>">删除</a></td>
+					<td><a class="operation operation_delete" href="javascript:if(confirm('确定要删除吗?')) location='<?php echo U('delete',array('id'=>$vo['id']));?>'">删除</a></td>
 				</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 			</table>
 		</div>

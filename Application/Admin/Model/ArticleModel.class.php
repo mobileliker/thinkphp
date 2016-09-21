@@ -5,8 +5,7 @@
 
 	Class ArticleModel extends Model{
 		protected $_validate= array(
-			
-
+			array('title','require','题目必须！'),
 		);
 
 		protected $_auto=array(

@@ -16,7 +16,6 @@
 	<include file="Public/header" />
 	<include file="Public/left_nav" />
 	<div class="right_box">
-		<a class="add" href="__URL__/add">新增</a>
 		<div>
 			<table cellspacing="0" cellpadding="0">
 				<tr>
@@ -34,7 +33,7 @@
 					<td>{$vo.sort} </td>
 					<td>{$vo.user_id} </td>
 					<td><a class="operation operation_edit" href="__URL__/edit/id/{$vo.id}">编辑</a></td>
-					<td><a class="operation operation_delete" href="__URL__/delete/id/{$vo.id}">删除</a></td>
+					<td><a class="operation operation_delete" href="javascript:if(confirm('确定要删除吗?')) location='{:U('delete',array('id'=>$vo['id']))}'">删除</a></td>
 				</tr>
 				</volist>
 			</table>

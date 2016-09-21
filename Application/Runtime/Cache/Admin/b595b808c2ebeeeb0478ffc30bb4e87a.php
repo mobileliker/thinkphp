@@ -8,7 +8,7 @@
 <body>
 	<div class="header">
 	<a href="/index.php/admin/index/index">首页</a>
-	<a href="">退出</a>
+	<a href="<?php echo U('logout');?>">退出</a>
 </div>
 	<div class="left_nav">
 	<dl>
@@ -21,7 +21,7 @@
 	</dl>
 </div>
 	<div class="right_box">
-		<p>Hello,world!</p>
+		<p>Hello,<?php echo ($result["username"]); ?></p>
 	</div>
 </body>
 </html>

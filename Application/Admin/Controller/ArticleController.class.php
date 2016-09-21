@@ -1,9 +1,9 @@
 <?php
 namespace Admin\Controller;
 
-use Think\Controller;
+use Common\Controller\AdminController;
 
-class ArticleController extends Controller
+class ArticleController extends AdminController
 {
 	public function add()
 	{
@@ -31,7 +31,8 @@ class ArticleController extends Controller
 	public function show()
 	{
 		$article = M('article');
-		$count = $article->count();
+		$temp['user_id'] = session('user_id'); // 筛选文章
+		$count = $article->where($temp)->count();
 		$pagecount =3 ;
 		$Page = new \Think\Page($count,$pagecount);
 		//$Page->rollPage=4;
@@ -39,9 +40,9 @@ class ArticleController extends Controller
 		$Page->setConfig('prev','上一页');
 		$Page->setConfig('next','下一页');
 		$Page->setConfig('last','尾页');
-		$Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% 第 '.I('p',1).' 页/共 %TOTAL_PAGE% 页 ( '.$pagecount.' 条/页 共 %TOTAL_ROW% 条)');
+		$Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% 第 '.I('p',1).' 页/共 %TOTAL_PAGE% 页');
 		$show = $Page->show();
-		$list = $article->where('user_id=1')->order('create_datetime')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$list = $article->where($temp)->order('create_datetime')->limit($Page->firstRow.','.$Page->listRows)->select();
 		$this->assign('list',$list);
 		$this->assign('page',$show);
 		$this->display();
@@ -69,7 +70,7 @@ class ArticleController extends Controller
 			$this->error('数据更新错误！');
 		}
 		}else{
-			$this->error($this->Categories->getError());
+			$this->error($article->getError());
 		}
 	}
 
@@ -78,7 +79,7 @@ class ArticleController extends Controller
 		$article = M('article');
 		$result = $article->delete($id);
     	if($result) {
-			$this->success('数据删除成功！','/show');
+			$this->success('数据删除成功！');
 		}else{
 			$this->error('数据删除错误！');
 		}

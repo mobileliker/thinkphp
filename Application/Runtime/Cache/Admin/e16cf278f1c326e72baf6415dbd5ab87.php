@@ -1,6 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit();?>
-
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -14,7 +12,7 @@
 <body>
 	<div class="header">
 	<a href="/index.php/admin/index/index">首页</a>
-	<a href="">退出</a>
+	<a href="<?php echo U('logout');?>">退出</a>
 </div>
 	<div class="left_nav">
 	<dl>
@@ -35,7 +33,7 @@
 			<?php if(is_array($result)): foreach($result as $key=>$vo): ?><option value =<?php echo ($vo["id"]); ?>> <?php echo ($vo["category_name"]); ?></option><?php endforeach; endif; ?>
  		</select>
  		<br>
-		<input type="hidden" name="user_id" value="1">
+		<input type="hidden" name="user_id" value=<?php echo (session('user_id')); ?> >
 		排序：<input type="text" name="sort" value="50"><br>
 		本文内容：
 		<!-- 加载编辑器的容器 -->
