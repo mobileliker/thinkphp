@@ -43,9 +43,16 @@ class ArticleController extends AdminController
 		$Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% 第 '.I('p',1).' 页/共 %TOTAL_PAGE% 页');
 		$show = $Page->show();
 		$list = $article->where($temp)->order('create_datetime')->limit($Page->firstRow.','.$Page->listRows)->select();
-		$this->assign('list',$list);
-		$this->assign('page',$show);
-		$this->display();
+
+		if(count($list) > 0){
+			$this->assign('list',$list);
+			$this->assign('page',$show);
+			$this->display();
+
+		}else{
+			$this->error('页码不存在');
+		}
+
 	}
 
 	public function edit($id)
