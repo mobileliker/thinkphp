@@ -33,26 +33,26 @@
 	<include file="Public/left_nav" />
 	<div class="right_box">
 		<volist	name="list" id="vo">
-	<div class="article">
-		<div class="article_title"><h3>{$vo.title}</h3></div>
-		<div class="article_tag">
-			<if condition = "$vo.tag === '' "> <br>
-			   <else/>{$vo.tag}
-			</if>
-		</div>
-		<div class="article_content">
-		<!-- {:htmlspecialchars_decode($vo['content'])} -->
-		{$vo['content']|htmlspecialchars_decode|strip_tags|mb_substr=0,200}
-		</div>
-		<div class="article_datetime">
-			发表于{$vo.create_datetime}
-		</div>
-		<div>
-			<a href="__URL__/edit/id/{$vo.id}">编辑</a>
-			<a href="javascript:if(confirm('确定要删除吗?')) location='{:U('delete',array('id'=>$vo['id']))}'">删除</a>
-		</div>
-	</div>
-	</volist>
+			<div class="article">
+				<div class="article_title"><h3>{$vo.title}</h3></div>
+				<div class="article_tag">
+					<if condition = "$vo.tag === '' "> <br>
+					   <else/>{$vo.tag}
+					</if>
+				</div>
+				<div class="article_content">
+				<!-- {:htmlspecialchars_decode($vo['content'])} -->
+				{$vo['content']|htmlspecialchars_decode|strip_tags|mb_substr=0,200}
+				</div>
+				<div class="article_datetime">
+					发表于{$vo.create_datetime}
+				</div>
+				<div>
+					<a href="__URL__/edit/id/{$vo.id}">编辑</a>
+					<a href="javascript:if(confirm('确定要删除吗?')) location='{:U('delete',array('id'=>$vo['id']))}'">删除</a>
+				</div>
+			</div>
+		</volist>
  	<div>
  		{$page}
  	</div>

@@ -1,0 +1,47 @@
+.header{
+	height:120px;
+	background-color: #1bb1b2;
+	overflow: hidden;
+}
+
+.header_title{
+	font-size: 46px;
+	text-align: center;
+	line-height: 120px;
+	color:#ffffff;
+}
+
+.header_login_container{
+	float: right;
+    position: relative;
+    right: 40px;
+    bottom: 70px;
+}
+
+.header_login{
+	padding: 5px 10px;
+	border:#ffffff solid 1px;
+	color:#ffffff;
+	border-radius: 5px;
+}
+
+.nav{
+	background-color: #ffffff;
+}
+
+.nav ul{
+	text-align: center;
+	height: 60px;
+}
+.nav li{
+	font-size: 18px;
+    padding: 0 18px;
+    margin: 0 15px;
+    line-height: 58px;
+    display: inline-block;
+}
+
+.nav li:hover{
+	border-bottom: 3px solid #1bb1b2;
+}
+

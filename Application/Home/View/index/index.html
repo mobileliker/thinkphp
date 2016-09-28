@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/public.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/home/frame.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/home/index.css">
+</head>
+<body>
+	<include file="public/header" />
+	<div class="box">
+		<div class="box_left">
+			<volist	name="list" id="vo">
+				<div class="box_left_article">
+				<h3 class="title">{$vo.title}</h3>
+				<p class="author">作者：<span>{$user.username}</span>|发表于{$vo.create_datetime}</p>
+				<p class="content">{$vo['content']|htmlspecialchars_decode|strip_tags|mb_substr=0,200}</p>
+				<div class="read">
+					<a class="read_bottom" href="">阅读全文</a>
+				</div>
+			</div>
+			</volist>
+			<div class="box_left_page">
+				{$page}
+			</div>
+		</div>
+		<div class="box_right">
+			<div class="pic"><img src="a.jpg"></div>
+			<p class="name">aa</p>
+			<p class="welcome">welcome to my blog</p>
+			<div class="tagset">
+				<div class="tag">
+					<p>{$list|count}</p>
+					<p>日志</p>
+				</div>
+				<div class="tag tag_mid">
+					<p>3</p>
+					<p>分类</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

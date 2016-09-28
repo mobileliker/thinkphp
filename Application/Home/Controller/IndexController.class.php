@@ -5,8 +5,84 @@ use Think\Controller;
 
 class IndexController extends Controller
 {
-    public function index()
+
+    public function index($id=1)
     {
-        $this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;font-size:24px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px } a,a:hover{color:blue;}</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>ThinkPHP</b>！</p><br/>版本 V{$Think.version}</div><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_55e75dfae343f5a1"></thinkad><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
+    	$Users = M('user');
+    	$user = $Users->find($id);
+    	$Articles = M('article');
+    	$temp['user_id'] = $user['id'];
+    	$this->assign('user',$user);
+
+    	$count = $Articles -> where($temp) -> count();
+		$pagecount =5 ;
+		$Page = new \Think\Page($count,$pagecount);
+		//$Page->rollPage=4;
+		$Page->setConfig('first','首页');
+		$Page->setConfig('prev','上一页');
+		$Page->setConfig('next','下一页');
+		$Page->setConfig('last','尾页');
+		$Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% <span>第 '.I('p',1).' 页/共 %TOTAL_PAGE% 页</span>');
+		$show = $Page->show();
+		$this->assign('page',$show);
+
+		$list = $Articles -> where($temp) ->order('sort') -> limit($Page->firstRow.','.$Page->listRows)->select();
+    	$this->assign('list',$list);
+        $this->display();
+    }
+
+    public function category($id=-1)
+    {
+    	$Users = M('user');
+    	$user = $Users-> find(1); //默认设置为1
+    	$temp['user_id'] = $user['id'];
+    	$Categories = M('category')->where($temp)->select();
+        $this->assign('category',$Categories);
+
+        if($id!=-1){
+            $temp['category_id'] = $id;
+        }
+    	$Articles = M('article');
+    	$count = $Articles -> where($temp) -> count();
+		$pagecount =5 ;
+		$Page = new \Think\Page($count,$pagecount);
+		//$Page->rollPage=4;
+		$Page->setConfig('first','首页');
+		$Page->setConfig('prev','上一页');
+		$Page->setConfig('next','下一页');
+		$Page->setConfig('last','尾页');
+		$Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% 第 '.I('p',1).' 页/共 %TOTAL_PAGE% 页');
+		$show = $Page->show();
+        $this->assign('page',$show);
+
+		$list = $Articles -> where($temp) ->order('create_datetime') -> limit($Page->firstRow.','.$Page->listRows)->select();
+    	$this->assign('list',$list);
+
+    	$this->display();
+    }
+
+    public function article($id)
+    {
+    	$article = M('article')->find($id);
+        if($article === null) $this->error('非法操作');
+        $category = M('category')->find($artcile['category_id']);
+        $this->assign('article',$article);
+        $this->assign('category',$category);
+        $this->display();
+    }
+
+    public function create()
+    {
+        $message = D('message');
+        if($message->create()){
+            $result = $message->add();
+            if($result) {
+                $this->success('数据添加成功！');
+            }else{
+                $this->error('数据添加错误！');
+            }
+        }else{
+            $this->error($message->getError());
+        }
     }
 }
