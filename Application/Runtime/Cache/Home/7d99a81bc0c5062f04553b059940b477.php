@@ -2,58 +2,89 @@
 <html>
 <head>
 	<title></title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/Public/static/css/frame.css">
 	<link rel="stylesheet" type="text/css" href="/Public/static/css/public.css">
-	<link rel="stylesheet" type="text/css" href="/Public/static/css/article.css">
+	<link rel="stylesheet" type="text/css" href="/Public/static/css/home/frame.css">
+	<link rel="stylesheet" type="text/css" href="/Public/static/css/home/article.css">
 </head>
 <body>
 		<div class="header">
- 		<div class="login_choice">
- 			<a href= <?php echo U('Admin/Login/login');?> >登录</a>
- 		</div>
-	 	<div class="header_choice">
-	 		<a href= <?php echo U('index');?> >首页</a>
-	 		<a href= <?php echo U('category');?> >博文分类</a>	
- 		</div>
- 	</div>
-	<div class="article_box">
-		<div class="article_box_title">
-			<h2><?php echo ($article["title"]); ?></h2>
-		</div>
-		<div class="artcile_box_date">
-			<p>发表于<?php echo ($article["create_datetime"]); ?></p>
-		</div>
-		<div class="article_box_tag">
-			<p>标签：<?php echo ($article["tag"]); ?> 分类：<?php echo ($category["category_name"]); ?></p>
-		</div>
-		<div class="article_box_content">
-			<?php echo (stripcslashes(htmlspecialchars_decode($article["content"]))); ?>
-		</div>
-		<div class="article_box_guide">
-			<a class="pre" href="">上一篇：</a><br>
-			<a class="next" href="">下一篇：</a>
+		<p class="header_title">aa的个人博客</p>
+		<div class="header_login_container">
+			<a class="header_login" href=<?php echo U("Admin/login/login");?>>Sign in</a>
 		</div>
 	</div>
-	<div class="message_release">
-		<form action="/index.php/Home/Index/create" method="post">
-			请留下你的名字：<input type="text" name="author"><br>
-			请留下你的email：<input type="text" name="email"><br>
-			<textarea name="content"></textarea>
-			<input type="hidden" name="article_id" value=<?php echo ($article["id"]); ?>>
-			<input type="hidden" name="pre_id" value=null>
-			<input type="hidden" name="sort" value="50">
-			<input type="submit">
-		</form>
+	<div class="nav">
+		<ul>
+			<li><a href=<?php echo U("index");?>>首页</a></li>
+			<li><a href=<?php echo U("category");?>>分类</a></li>
+		</ul>
 	</div>
-	<div class="message_show">
-		<div class="message_show_info">
-			<span><img src="/Public/static/images/head.png"></span>
-			<p class="message_show_name">成龙</p>
-			<p class="message_show_datetime">2016-7-15</p>
+	<div class="container">
+		<div class="article_box">
+			<div class="article_detail">
+				<h2 class="title">第一篇博客--PHP环境搭建</h2>
+				<p class="author">作者：<span>tom</span>|发表于 2016-09-21</p>
+				<p class="tag"><span>分类：php</span><span>标签：环境搭建</span></p>
+				<div class="content">
+					<p>如何在本地搭建php是大家都关注的，php环境搭建可以说比较容易也可以说比较难，对于新手而言环境搭建就是要学习以及测试所用的。PHP网站调试就是高手所用了。不管你是新手还是老手本地环境搭建都是必须的。</p>
+				</div>
+				<div class="article_nav">
+					<p class="pre">上一篇：<a href=""></a></p>
+					<p class="next">下一篇：<a href=""></a></p>
+				</div>
+			</div>
+			<div class="message_release">
+				<h3>发表评论</h3>
+				<form action="" method="post">
+					<div>
+						<span>请留下你的名字：<input type="text" name="author"></span>
+						<span>请留下你的email：<input type="text" name="email"></span>
+					</div>
+					<p>请留下你的评论：</p>
+					<div>
+						<textarea>
+							
+						</textarea>
+					</div>
+					<input type="submit" value="提交">
+				</form>
+			</div>
 		</div>
-		<div class="rate_detail_item_content">
-		据俄罗斯卫星网14日报道，俄总统新闻秘书佩斯科夫表示，英国任命新首相给俄英关系的改变带来一定希望。7月13日英国女王伊丽莎白二世任命特雷莎·梅(此前任内务部长)为英国首相。英国脱欧活动领导人之一、前伦敦市长约翰逊担任新任外交大臣。佩斯科夫在回答记者提问时表示，“很可惜，我们在双边关系领域没有任何成就值得称赞，因此每一个新的开始都带来一定的希望。”佩斯科夫指出，俄罗斯认为，目前双边关系的状态不符合双方潜力。
+		<div class="message_box">
+			<h2>评论区</h2>
+			<div class="message_item">
+				<div class="item_left">
+					<div class="pic">
+					</div>
+					<div>tom</div>
+				</div>
+				<div class="item_right">
+					<p>什么是索引？ 1、索引 索引是表的目录，在查找内容之前可以先在目录中查找索引位置，以此快速定位查询数据。对于索引，会保存在额外的文件中。 2. 索引，是数据库中专门用于帮助用户快速查询数据的一种数据结构。类似于字典中的目录，查找字典内容时可以根据目录查找到数据的存放位置，然后直接获取即可。 索引由数 ...</p>
+					<p class="datetime">发表于2016-1-1</p>
+				</div>
+			</div>
+			<div class="message_item">
+				<div class="item_left">
+					<div class="pic">
+					</div>
+					<div>tom</div>
+				</div>
+				<div class="item_right">
+					<p>什么是索引？ 1、索引 索引是表的目录，在查找内容之前可以先在目录中查找索引位置，以此快速定位查询数据。对于索引，会保存在额外的文件中。 2. 索引，是数据库中专门用于帮助用户快速查询数据的一种数据结构。类似于字典中的目录，查找字典内容时可以根据目录查找到数据的存放位置，然后直接获取即可。 索引由数 ...什么是索引？ 1、索引 索引是表的目录，在查找内容之前可以先在目录中查找索引位置，以此快速定位查询数据。对于索引，会保存在额外的文件中。 2. 索引，是数据库中专门用于帮助用户快速查询数据的一种数据结构。类似于字典中的目录，查找字典内容时可以根据目录查找到数据的存放位置，然后直接获取即可。 索引由数 ...</p>
+					<p class="datetime">发表于2016-1-1</p>
+				</div>
+			</div>
+			<div class="message_item">
+				<div class="item_left">
+					<div class="pic">
+					</div>
+					<div>tom</div>
+				</div>
+				<div class="item_right">
+					<p>什么是索引？ 1、索引 索引是表的目录，在查找内容之前可以先在目录中查找索引位置，以此快速定位查询数据。对于索引，会保存在额外的文件中。 2. 索引，是数据库中专门用于帮助用户快速查询数据的一种数据结构。类似于字典中的目录，查找字典内容时可以根据目录查找到数据的存放位置，然后直接获取即可。 索引由数 ...</p>
+					<p class="datetime">发表于2016-1-1</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

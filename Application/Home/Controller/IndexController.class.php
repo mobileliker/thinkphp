@@ -51,7 +51,7 @@ class IndexController extends Controller
 		$Page->setConfig('prev','上一页');
 		$Page->setConfig('next','下一页');
 		$Page->setConfig('last','尾页');
-		$Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% 第 '.I('p',1).' 页/共 %TOTAL_PAGE% 页');
+		$Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% <span>第 '.I('p',1).' 页/共 %TOTAL_PAGE% 页</span>');
 		$show = $Page->show();
         $this->assign('page',$show);
 

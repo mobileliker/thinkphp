@@ -25,16 +25,16 @@
 				<h3 class="title"><?php echo ($vo["title"]); ?></h3>
 				<p class="author">作者：<span><?php echo ($user["username"]); ?></span>|发表于<?php echo ($vo["create_datetime"]); ?></p>
 				<p class="content"><?php echo (mb_substr(strip_tags(htmlspecialchars_decode($vo['content'])),0,200)); ?></p>
-				<div class="read">
-					<a class="read_bottom" href="">阅读全文</a>
-				</div>
-			</div><?php endforeach; endif; else: echo "" ;endif; ?>
+					<div class="read">
+						<a class="read_bottom" href="">阅读全文</a>
+					</div>
+				</div><?php endforeach; endif; else: echo "" ;endif; ?>
 			<div class="box_left_page">
 				<?php echo ($page); ?>
 			</div>
 		</div>
 		<div class="box_right">
-			<div class="pic"><img src="a.jpg"></div>
+			<div class="pic"><img src="/Public/static/images/a.jpg"></div>
 			<p class="name">aa</p>
 			<p class="welcome">welcome to my blog</p>
 			<div class="tagset">

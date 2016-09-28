@@ -126,3 +126,17 @@
 .tag_mid{
 	border-left:1px solid #e0e0e0;
 }
+
+.box_right_nav li{
+	text-align: center;
+	padding: 10px 0;
+}
+
+.box_right_nav a{
+	padding: 10px 25px;
+}
+
+.box_right_nav a:hover{
+	background-color:#1bb1b2;
+	color:#ffffff;
+}
