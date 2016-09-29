@@ -47,10 +47,51 @@
 	font-size: 18px;
 }
 
+.article_detail .article_nav a:hover{
+	color:#1bb1b2;
+}
+
 /**/
 
 .message_release{
 	padding: 20px 70px;
+}
+
+.message_release h3{
+	margin-bottom: 20px;
+}
+
+.message_release form .name_container{
+	margin: 10px 0;
+}
+
+.message_release form .name_container input{
+	width: 170px;
+    outline: none;
+}
+
+.message_release form .textarea_container{
+	margin:10px 0;
+}
+
+.textarea_container textarea{
+	width: 100%;
+    height: 100px;
+    outline: none;
+    font-size: 18px;
+}
+
+.message_release form .submit_click_container{
+	text-align: right;
+	margin-bottom: 25px;
+}
+
+.message_release form .submit_click{
+    padding: 7px 30px;
+    border: none;
+    background-color: #1bb1b2;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 /**/

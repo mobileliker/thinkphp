@@ -49,6 +49,10 @@
 	font-size: 20px;
 }
 
+.box_left_article .read_bottom:hover{
+	opacity: 0.8;
+}
+
 .box_left_page{
 	margin:40px 0;
 	text-align: center;

@@ -4,9 +4,12 @@
 	use Think\Model;
 
 	Class MessageModel extends Model{
-		// protected $_validate= array(
-		// 	array('title','require','题目必须！'),
-		// );
+		protected $_validate= array(
+			array('author','require','名字必须！'),
+			array('email','require','email必须！'),
+			array('content','require','评论必须！'),
+			//array('email','email','邮箱不正确'),
+		);
 
 		protected $_auto=array(
 			array('create_datetime','datetime',3,'callback'),

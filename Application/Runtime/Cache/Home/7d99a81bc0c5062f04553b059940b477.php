@@ -8,7 +8,7 @@
 </head>
 <body>
 		<div class="header">
-		<p class="header_title">aa的个人博客</p>
+		<p class="header_title">Ben的个人博客</p>
 		<div class="header_login_container">
 			<a class="header_login" href=<?php echo U("Admin/login/login");?>>Sign in</a>
 		</div>
@@ -22,31 +22,38 @@
 	<div class="container">
 		<div class="article_box">
 			<div class="article_detail">
-				<h2 class="title">第一篇博客--PHP环境搭建</h2>
-				<p class="author">作者：<span>tom</span>|发表于 2016-09-21</p>
-				<p class="tag"><span>分类：php</span><span>标签：环境搭建</span></p>
+				<h2 class="title"><?php echo ($article["title"]); ?></h2>
+				<p class="author">作者：<?php echo ($article["username"]); ?><span></span>|发表于 <?php echo ($article["create_datetime"]); ?></p>
+				<p class="tag"><span>分类：<?php echo ($article["category_name"]); ?></span><span>标签：<?php echo ($article["tag"]); ?></span></p>
 				<div class="content">
-					<p>如何在本地搭建php是大家都关注的，php环境搭建可以说比较容易也可以说比较难，对于新手而言环境搭建就是要学习以及测试所用的。PHP网站调试就是高手所用了。不管你是新手还是老手本地环境搭建都是必须的。</p>
+					<?php echo (stripcslashes(htmlspecialchars_decode($article["content"]))); ?>
 				</div>
 				<div class="article_nav">
-					<p class="pre">上一篇：<a href=""></a></p>
-					<p class="next">下一篇：<a href=""></a></p>
+					<p class="pre">上一篇：
+						<?php if($pre['id'] !== null ): ?><a href=<?php echo U("article",array('id'=>$pre['id']));?>> <?php echo ($pre['title']); ?></a>
+						<?php else: ?> 没有了<?php endif; ?>
+					</p>
+					<p class="next">下一篇：
+						<?php if($next['id'] !== null ): ?><a href=<?php echo U("article",array('id'=>$next['id']));?>> <?php echo ($next['title']); ?></a>
+						<?php else: ?> 没有了<?php endif; ?>
+					</p>
 				</div>
 			</div>
 			<div class="message_release">
 				<h3>发表评论</h3>
-				<form action="" method="post">
-					<div>
+				<form action="/index.php/Home/Index/create" method="post">
+					<input type="hidden" name="article_id" value=<?php echo ($article["id"]); ?>>
+					<div class="name_container">
 						<span>请留下你的名字：<input type="text" name="author"></span>
-						<span>请留下你的email：<input type="text" name="email"></span>
+						<span style="float:right;">请留下你的email：<input type="text" name="email"></span>
 					</div>
 					<p>请留下你的评论：</p>
-					<div>
-						<textarea>
-							
-						</textarea>
+					<div class="textarea_container">
+						<textarea name="content" maxlength="200"></textarea>
 					</div>
-					<input type="submit" value="提交">
+					<div class="submit_click_container">
+						<input class="submit_click" type="submit" value="提交">
+					</div>
 				</form>
 			</div>
 		</div>

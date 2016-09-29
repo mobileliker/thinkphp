@@ -13,10 +13,10 @@
 			<volist	name="list" id="vo">
 				<div class="box_left_article">
 				<h3 class="title">{$vo.title}</h3>
-				<p class="author">作者：<span>{$user.username}</span>|发表于{$vo.create_datetime}</p>
+				<p class="author">作者：<span>{$vo.username}</span>|发表于{$vo.create_datetime}</p>
 				<p class="content">{$vo['content']|htmlspecialchars_decode|strip_tags|mb_substr=0,200}</p>
 					<div class="read">
-						<a class="read_bottom" href="">阅读全文</a>
+						<a class="read_bottom" href={:U('article',array('id'=>$vo['id']))}>阅读全文</a>
 					</div>
 				</div>
 			</volist>
