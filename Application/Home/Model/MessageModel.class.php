@@ -18,5 +18,15 @@
 		protected function datetime(){
 			return date("Y-m-d H:i:s");
 		}
+
+		public function getData($aid){
+			$temp = array(
+				'article_id' => $aid,
+				'pre_id'	 => array('EXP','IS NULL'),
+				);
+			$data = M('message') ->where($temp)->select();
+			
+			return $data;
+		}
 	}
 ?>

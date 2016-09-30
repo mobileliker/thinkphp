@@ -76,6 +76,10 @@ class IndexController extends Controller
         $article['username'] = $user['username'];
         $pre  =  M('article')->where(array('id'=>array("LT",$id)))->order('id desc')->limit('0,1')->find();
         $next =  M('article')->where(array('id'=>array("GT",$id)))->order('id asc')->limit('0,1')->find();
+        //读取评论消息
+        $messages = D('message') ->getData($id);
+        $this ->assign('message',$messages);
+        print_r($messages);
         $this->assign('pre',$pre);
         $this->assign('next',$next);
         $this->assign('article',$article);

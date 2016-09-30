@@ -136,3 +136,17 @@
 	font-size: 14px;
 	margin-top:5px;
 }
+
+.message_item .item_right .reply{
+	margin-right: 20px; 
+	cursor: pointer;
+}
+
+.message_item .item_right .reply:hover{
+	color:#1bb1b2;
+}
+
+.invisible_item{
+	display: none;
+	opacity: 0;
+}

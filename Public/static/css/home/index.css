@@ -101,12 +101,12 @@
 	height: 125px;
 	border:1px solid #000000;
 	margin:0 auto;
+	background: url("../../images/a.jpg");
+	background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
-.box_right .pic img{
-	width: 110px;
-	height: 110px;
-}
 .box_right .name{
 	margin:5px 0;
 	text-align: center;

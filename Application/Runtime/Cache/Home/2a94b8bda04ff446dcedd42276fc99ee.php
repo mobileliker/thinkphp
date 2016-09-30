@@ -34,7 +34,7 @@
 			</div>
 		</div>
 		<div class="box_right">
-			<div class="pic"><img src="/Public/static/images/a.jpg"></div>
+			<div class="pic"></div>
 			<p class="name">Ben</p>
 			<p class="welcome">welcome to my blog</p>
 			<div class="tagset">
