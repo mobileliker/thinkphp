@@ -25,7 +25,7 @@ class IndexController extends Controller
         //显示博客和分类的个数
         $num['blog'] = count($Articles->select());
         $num['category'] = count($Categories->select());
-        if(count($list)>0){
+        if(I('p')<=$Page->totalPages||I('p')===1){
             $this->assign('page',$show);
             $this->assign('list',$list);
             $this->assign('num',$num);
@@ -61,6 +61,7 @@ class IndexController extends Controller
             $this->assign('page',$show);
             $this->assign('list',$list);
             $this->display();
+            
         }else{
             $this->error('页码不存在');
         }
@@ -77,9 +78,23 @@ class IndexController extends Controller
         $pre  =  M('article')->where(array('id'=>array("LT",$id)))->order('id desc')->limit('0,1')->find();
         $next =  M('article')->where(array('id'=>array("GT",$id)))->order('id asc')->limit('0,1')->find();
         //读取评论消息
-        $messages = D('message') ->getData($id);
-        $this ->assign('message',$messages);
-        print_r($messages);
+        // $messages = D('message') ->getData($id);
+        // $this ->assign('message',$messages);
+
+        //新增分页功能
+        $count = M('message')-> count();
+        $pagecount =5 ;
+        $Page = new \Think\Page($count,$pagecount);
+        $Page->setConfig('first','首页');
+        $Page->setConfig('prev','上一页');
+        $Page->setConfig('next','下一页');
+        $Page->setConfig('last','尾页');
+        $Page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% <span>第 '.I('p',1).' 页/共 %TOTAL_PAGE% 页</span>');
+        $show = $Page->show();
+        $this->assign('page',$show);
+        $list = M('message') -> order('sort desc') -> limit($Page->firstRow.','.$Page->listRows)->select();
+        $this ->assign('message',$list);
+        // print_r($messages);
         $this->assign('pre',$pre);
         $this->assign('next',$next);
         $this->assign('article',$article);

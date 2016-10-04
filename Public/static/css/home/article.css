@@ -111,11 +111,13 @@
 	display: inline-block;
     text-align: center;
     vertical-align: top;
-    padding: 5px 15px;
+    padding: 5px;
+    width: 100px;
 }
 
 
 .message_item .item_left .pic{
+	margin: 0 auto;
 	width: 64px;
 	height: 64px;
 	overflow: hidden;
@@ -149,4 +151,38 @@
 .invisible_item{
 	display: none;
 	opacity: 0;
+}
+
+.page{
+	margin:40px 0;
+	text-align: center;
+}
+
+.page a{
+	padding: 10px 15px;
+	background-color:#ffffff;
+	border:1px solid #e1e1e1;
+	margin:0 3px;
+}
+
+.page span{
+	padding: 10px 15px;
+	background-color:#ffffff;
+	border:1px solid #e1e1e1;
+	margin:0 3px;
+	cursor:pointer;
+}
+
+.page .current{
+	color: #ffffff;
+	background-color:#1bb1b2;
+	border:none;
+	margin:0 3px;
+	padding: 10px 15px;
+}
+
+.page a:hover{
+	opacity:0.7;
+	background-color:#1bb1b2;
+	color: #ffffff;
 }

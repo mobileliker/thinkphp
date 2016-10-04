@@ -20,10 +20,10 @@
 		}
 
 		public function getData($aid){
-			$temp = array(
-				'article_id' => $aid,
-				'pre_id'	 => array('EXP','IS NULL'),
-				);
+			// $temp = array(
+			// 	'article_id' => $aid,
+			// 	'pre_id'	 => array('EXP','IS NULL'),
+			// 	);
 			$data = M('message') ->where($temp)->select();
 			
 			return $data;

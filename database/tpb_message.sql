@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `tpb_message`;
 CREATE TABLE `tpb_message` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `author` varchar(50) NOT NULL,
+  `author` varchar(25) NOT NULL,
   `content` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
   `create_datetime` datetime NOT NULL,

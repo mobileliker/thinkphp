@@ -55,7 +55,7 @@
 			<if condition="$message eq null">
 				<p style="text-align:center;font-size:20px;padding:10px 0;">该文章没有评论</p>
 			<else/>
-				<foreach name="message" item="vo">
+				<volist name="message" id="vo">
 					<div class="message_item">
 						<div class="item_left">
 							<div class="pic">
@@ -84,7 +84,10 @@
 							</form>
 						</div>
 					</div>
-				</foreach>
+				</volist>
+				<div class="page">
+					{$page}
+				</div>
 			</if>
 			<!-- <div class="message_item">
 				<div class="item_left">

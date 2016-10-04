@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/public.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/index.css">
+</head>
+<body>
+	<include file="Public/header" />
+	<include file="Public/left_nav" />
+	<div class="right_box">
+		<table cellspacing="0" cellpadding="0">
+				<tr>
+					<td>id</td>
+					<td>author</td>
+					<td>content</td>
+					<td>email</td>
+					<td>create_datetime</td>
+					<td>article_id</td>
+					<td>pre_id</td>
+					<td>sort</td>
+				</tr>
+				<volist name = "message" id="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.author}</td>
+					<td>{$vo.content}</td>
+					<td>{$vo.email}</td>
+					<td>{$vo.create_datetime}</td>
+					<td>{$vo.article_id}</td>
+					<td>{$vo.pre_id}</td>
+					<td>{$vo.sort}</td>
+					<td><a class="operation operation_delete" href="javascript:if(confirm('确定要删除吗?')) location='{:U('delete',array('id'=>$vo['id']))}'">删除</a></td>
+				</tr>
+				</volist>
+			</table>
+	</div>
+</body>
+</html>
