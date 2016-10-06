@@ -17,8 +17,8 @@
 	</div>
 	<div class="nav">
 		<ul>
-			<li><a href=<?php echo U("index");?>>首页</a></li>
-			<li><a href=<?php echo U("category");?>>分类</a></li>
+			<li><a href=<?php echo U("Home/Index/index");?>>首页</a></li>
+			<li><a href=<?php echo U("Home/Index/category");?>>分类</a></li>
 		</ul>
 	</div>
 	<div class="container">
@@ -63,14 +63,14 @@
 			<h2>评论区</h2>
 			<?php if($message == null): ?><p style="text-align:center;font-size:20px;padding:10px 0;">该文章没有评论</p>
 			<?php else: ?>
-				<?php if(is_array($message)): foreach($message as $key=>$vo): ?><div class="message_item">
+				<?php if(is_array($message)): $i = 0; $__LIST__ = $message;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="message_item">
 						<div class="item_left">
 							<div class="pic">
 							</div>
 							<div><?php echo ($vo["author"]); ?></div>
 						</div>
 						<div class="item_right">
-							<p><?php if($vo["pre_id"] != null): ?>回复<?php echo ($message[$vo['pre_id']]['author']); ?>的评论:<?php endif; echo ($vo["content"]); ?></p>
+							<p><?php if($vo["pre_id"] != null): ?>回复<?php echo ($vo['reply']['author']); ?>的评论:<?php endif; echo ($vo["content"]); ?></p>
 							<p class="datetime"><span class="reply">回复</span>发表于<?php echo ($vo["create_datetime"]); ?></p>
 						</div>
 						<div class="message_release invisible_item">
@@ -90,18 +90,10 @@
 								</div>
 							</form>
 						</div>
-					</div><?php endforeach; endif; endif; ?>
-			<!-- <div class="message_item">
-				<div class="item_left">
-					<div class="pic">
-					</div>
-					<div>tom</div>
-				</div>
-				<div class="item_right">
-					<p>什么是索引？ 1、索引 索引是表的目录，在查找内容之前可以先在目录中查找索引位置，以此快速定位查询数据。对于索引，会保存在额外的文件中。 2. 索引，是数据库中专门用于帮助用户快速查询数据的一种数据结构。类似于字典中的目录，查找字典内容时可以根据目录查找到数据的存放位置，然后直接获取即可。 索引由数 ...</p>
-					<p class="datetime">发表于2016-1-1</p>
-				</div>
-			</div> -->
+					</div><?php endforeach; endif; else: echo "" ;endif; ?>
+				<div class="page">
+					<?php echo ($page); ?>
+				</div><?php endif; ?>
 		</div>
 	</div>
 </body>

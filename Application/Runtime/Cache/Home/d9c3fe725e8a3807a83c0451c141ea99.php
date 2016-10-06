@@ -15,8 +15,8 @@
 	</div>
 	<div class="nav">
 		<ul>
-			<li><a href=<?php echo U("index");?>>首页</a></li>
-			<li><a href=<?php echo U("category");?>>分类</a></li>
+			<li><a href=<?php echo U("Home/Index/index");?>>首页</a></li>
+			<li><a href=<?php echo U("Home/Index/category");?>>分类</a></li>
 		</ul>
 	</div>
 	<div class="box">

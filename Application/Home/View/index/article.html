@@ -63,7 +63,7 @@
 							<div>{$vo.author}</div>
 						</div>
 						<div class="item_right">
-							<p><if condition="$vo.pre_id neq null">回复{$message[$vo['pre_id']]['author']}的评论:</if>{$vo.content}</p>
+							<p><if condition="$vo.pre_id neq null">回复{$vo['reply']['author']}的评论:</if>{$vo.content}</p>
 							<p class="datetime"><span class="reply">回复</span>发表于{$vo.create_datetime}</p>
 						</div>
 						<div class="message_release invisible_item">
@@ -89,17 +89,6 @@
 					{$page}
 				</div>
 			</if>
-			<!-- <div class="message_item">
-				<div class="item_left">
-					<div class="pic">
-					</div>
-					<div>tom</div>
-				</div>
-				<div class="item_right">
-					<p>什么是索引？ 1、索引 索引是表的目录，在查找内容之前可以先在目录中查找索引位置，以此快速定位查询数据。对于索引，会保存在额外的文件中。 2. 索引，是数据库中专门用于帮助用户快速查询数据的一种数据结构。类似于字典中的目录，查找字典内容时可以根据目录查找到数据的存放位置，然后直接获取即可。 索引由数 ...</p>
-					<p class="datetime">发表于2016-1-1</p>
-				</div>
-			</div> -->
 		</div>
 	</div>
 </body>
