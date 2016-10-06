@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/public.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/home/frame.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/static/css/home/article.css">
+	<script type="text/javascript" src="__PUBLIC__/static/js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/static/js/article.js"></script>
+</head>
+<body>
+	<include file="public/header" />
+	<div class="container">
+		<div class="article_box">
+			<div class="article_detail">
+				<h2 class="title">{$article.title}</h2>
+				<p class="author">作者：{$article.username}<span></span>|发表于 {$article.create_datetime}</p>
+				<p class="tag"><span>分类：{$article.category_name}</span><span>标签：{$article.tag}</span></p>
+				<div class="content">
+					{$article.content|htmlspecialchars_decode|stripcslashes}
+				</div>
+				<div class="article_nav">
+					<p class="pre">上一篇：
+						<if condition="$pre['id'] !== null "><a href={:U("article",array('id'=>$pre['id']))}> {$pre['title']}</a>
+						<else /> 没有了
+						</if>
+					</p>
+					<p class="next">下一篇：
+						<if condition="$next['id'] !== null "><a href={:U("article",array('id'=>$next['id']))}> {$next['title']}</a>
+						<else /> 没有了
+						</if>
+					</p>
+				</div>
+			</div>
+			<div class="message_release">
+				<h3>发表评论</h3>
+				<form action="__URL__/create" method="post">
+					<input type="hidden" name="article_id" value={$article.id}>
+					<div class="name_container">
+						<span>请留下你的名字：<input type="text" name="author"></span>
+						<span style="float:right;">请留下你的email：<input type="text" name="email"></span>
+					</div>
+					<p>请留下你的评论：</p>
+					<div class="textarea_container">
+						<textarea name="content" maxlength="200"></textarea>
+					</div>
+					<div class="submit_click_container">
+						<input class="submit_click" type="submit" value="提交">
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="message_box">
+			<h2>评论区</h2>
+			<if condition="$message eq null">
+				<p style="text-align:center;font-size:20px;padding:10px 0;">该文章没有评论</p>
+			<else/>
+				<volist name="message" id="vo">
+					<div class="message_item">
+						<div class="item_left">
+							<div class="pic">
+							</div>
+							<div>{$vo.author}</div>
+						</div>
+						<div class="item_right">
+							<p><if condition="$vo.pre_id neq null">回复{$vo['reply']['author']}的评论:</if>{$vo.content}</p>
+							<p class="datetime"><span class="reply">回复</span>发表于{$vo.create_datetime}</p>
+						</div>
+						<div class="message_release invisible_item">
+							<form action="__URL__/create" method="post">
+								<input type="hidden" name="article_id" value={$article.id}>
+								<input type="hidden" name="pre_id" value={$vo.id}>
+								<div class="name_container">
+									<span>请留下你的名字：<input type="text" name="author"></span>
+									<span style="float:right;">请留下你的email：<input type="text" name="email"></span>
+								</div>
+								<p>请留下你的评论：</p>
+								<div class="textarea_container">
+									<textarea name="content" maxlength="200"></textarea>
+								</div>
+								<div class="submit_click_container">
+									<input class="submit_click" type="submit" value="提交">
+								</div>
+							</form>
+						</div>
+					</div>
+				</volist>
+				<div class="page">
+					{$page}
+				</div>
+			</if>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+[ 2016-09-28T12:02:31+08:00 ] 127.0.0.1 /index.php/Home/Index/a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000383s ]
+
+[ 2016-09-28T22:09:24+08:00 ] 127.0.0.1 /index.php/Home/Index/a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000592s ]
+
+[ 2016-09-28T22:09:25+08:00 ] 127.0.0.1 /index.php/Home/Index/a.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000499s ]
+

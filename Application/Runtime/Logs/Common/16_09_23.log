@@ -1,0 +1,36 @@
+[ 2016-09-23T18:59:38+08:00 ] 127.0.0.1 /index.php/index/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000450s ]
+ERR: 无法加载模块:Index
+
+[ 2016-09-23T18:59:51+08:00 ] 127.0.0.1 /index.php/index/id/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000569s ]
+ERR: 无法加载模块:Index
+
+[ 2016-09-23T19:00:20+08:00 ] 127.0.0.1 /index.php/index/id/1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000338s ]
+ERR: 无法加载模块:Index
+
+[ 2016-09-23T19:00:23+08:00 ] 127.0.0.1 /index.php/index/index/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+ERR: 无法加载模块:Index
+
+[ 2016-09-23T19:34:04+08:00 ] 127.0.0.1 /index.php/category/id/$vo.id.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000506s ]
+ERR: 无法加载模块:Category
+
+[ 2016-09-23T19:34:13+08:00 ] 127.0.0.1 /index.php/category/id/vo.id.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000399s ]
+ERR: 无法加载模块:Category
+
