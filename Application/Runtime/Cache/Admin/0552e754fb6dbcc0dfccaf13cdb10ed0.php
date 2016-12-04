@@ -6,7 +6,6 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="/Public/static/css/public.css">
 	<link rel="stylesheet" type="text/css" href="/Public/static/css/index.css">
-	<link rel="stylesheet" type="text/css" href="/Public/static/css/index.css">
 	<script type="text/javascript" src="/Public/static/js/jquery-2.2.2.min.js"></script>
 	<script type="text/javascript">
 	
@@ -19,6 +18,8 @@
 </div>
 	<div class="left_nav">
 	<dl>
+		<dt>评论管理</dt>
+		<dd><a class="link" href=<?php echo U("Admin/Message/show");?>>评论列表</a></dd>
 		<dt>文章管理</dt>
 		<dd><a class="link" href="/index.php/admin/article/add">增添文章</a></dd>
 		<dd><a class="link" href="/index.php/admin/article/show">文章列表</a></dd>
